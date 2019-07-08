@@ -18,6 +18,7 @@ public class MazeCell {
 		//Setting the cell position in Maze
 		this.mazeX = mazeX;
 		this.mazeY = mazeY;
+		connectedCells = new ArrayList<MazeCell>();
 	}
 	
 	/**
