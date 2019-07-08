@@ -80,12 +80,31 @@ public class MazeCellTest {
 	public void connectionNonAdjacentTest() {
 		midCell.connectToCell(x8y3);
 	}
-	
+
 	/**
-	 * Test that the inputCheck is done for connections to and from the same cell
+	 * Test that the inputCheck is done for connections to and from the same
+	 * cell
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void connectionToSameCell() {
 		midCell.connectToCell(midCell);
+	}
+
+	/**
+	 * Test that the inputCheck is done for the Y value in the constructor of
+	 * the MazeCell
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void constructMazeCellNegativeX() {
+		new MazeCell(-1, 0);
+	}
+
+	/**
+	 * Test that the inputCheck is done for the Y value in the constructor of
+	 * the MazeCell
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void constructMazeCellNegativeY() {
+		new MazeCell(0, -1);
 	}
 }

@@ -15,6 +15,11 @@ public class MazeCell {
 	private ArrayList<MazeCell> connectedCells;
 
 	public MazeCell(int mazeX, int mazeY) {
+		
+		if(mazeX < 0 || mazeY <0){
+			throw new IllegalArgumentException("input to MazeCell constructor cannot be negative, input values:["+mazeX+","+mazeY+"]");
+		}
+		
 		// Setting the cell position in Maze
 		this.mazeX = mazeX;
 		this.mazeY = mazeY;
