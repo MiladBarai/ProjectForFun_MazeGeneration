@@ -50,6 +50,14 @@ public class Maze {
 		return mazeCells;
 	}
 	
+	/**
+	 *returns the total amount of cells in the maze
+	 * @return
+	 */
+	public int getMazeCellCount(){
+		return mazeCells.size();
+	}
+	
 	public MazeCell getMazeCell(int mazeX, int mazeY){
 		Point key = new Point(mazeX, mazeY);
 		return pointToMazeCell.get(key);
