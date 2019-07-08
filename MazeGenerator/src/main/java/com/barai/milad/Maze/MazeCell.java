@@ -20,7 +20,14 @@ public class MazeCell {
 		this.mazeY = mazeY;
 	}
 	
-	
+	/**
+	 * Checks if the MazeCell is connectedTo the input cell
+	 * @param connectedTo
+	 * @return
+	 */
+	public boolean isConnectedTo(MazeCell connectedTo){
+		return connectedCells.contains(connectedTo);
+	}
 	
 	/**
 	 * Adds a connection from This MazeCell to the {@code connectedTo}
