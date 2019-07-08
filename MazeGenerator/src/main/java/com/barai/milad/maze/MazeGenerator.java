@@ -1,4 +1,4 @@
-package com.barai.milad.Maze;
+package com.barai.milad.maze;
 
 
 /**

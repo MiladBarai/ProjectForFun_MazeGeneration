@@ -1,4 +1,4 @@
-package com.barai.milad.Maze;
+package com.barai.milad.maze;
 
 import java.util.ArrayList;
 
@@ -34,7 +34,8 @@ public class MazeCell {
 	 * @param connectTo
 	 */
 	public void connectToCell(MazeCell connectTo){
-		
+		connectCell(connectTo);
+		connectTo.connectCell(this);
 	}
 	
 	/**
@@ -42,7 +43,7 @@ public class MazeCell {
 	 * @param connectTo
 	 */
 	private void connectCell(MazeCell connectTo){
-		
+		connectedCells.add(connectTo);
 	}
 
 }
