@@ -10,25 +10,14 @@ import java.util.ArrayList;
  */
 public class MazeCell {
 	
-	int mazeX;
-	int mazeY;
-	ArrayList<MazeCell> connectedCells;
-	
-	boolean topWall;
-	boolean bottomWall;
-	boolean rightWall;
-	boolean leftWall;
+	private int mazeX;
+	private int mazeY;
+	private ArrayList<MazeCell> connectedCells;
 	
 	public MazeCell(int mazeX, int mazeY){
-		//Setting the cell poisition in Maze
+		//Setting the cell position in Maze
 		this.mazeX = mazeX;
 		this.mazeY = mazeY;
-		
-		//Setting the walls of the maze to default true
-		topWall = true;     
-		bottomWall = true;  
-		rightWall = true;   
-		leftWall = true;		
 	}
 	
 	
@@ -42,17 +31,10 @@ public class MazeCell {
 	}
 	
 	/**
-	 * Set's up actuall maze connection
+	 * Set's up actual maze connection
 	 * @param connectTo
 	 */
 	private void connectCell(MazeCell connectTo){
-		
-	}
-	
-	/**
-	 * remove walls from the mazeConnections
-	 */
-	private void removeWallFromConnection(){
 		
 	}
 
