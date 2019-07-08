@@ -17,12 +17,25 @@ public class Maze {
 	private MazeCell endingCell;
 	private HashSet<MazeCell> mazeCells;
 	private HashMap<Point, MazeCell> pointToMazeCell;
-	
-	public Maze(MazeCell startingCell, MazeCell endingCell, HashMap<Point, MazeCell> pointToMazeCell){
-		this.startingCell = startingCell;
-		this.endingCell = endingCell;
-		this.pointToMazeCell = pointToMazeCell;
-		setupMazeCells(pointToMazeCell);
+
+	public Maze(int mazeWidth, int mazeHeight){
+		mazeCells = new HashSet<MazeCell>();
+		HashMap<Point, MazeCell> pointToMazeCell = new HashMap<Point, MazeCell>();
+		
+		Point tempPoint;
+		MazeCell tempCell;
+		
+		for(int i=0; i<mazeWidth; i++){
+			for(int j=0; j<mazeHeight; j++){
+				tempPoint = new Point(i,j);
+				tempCell = new MazeCell(tempPoint);
+				mazeCells.add(tempCell);
+				pointToMazeCell.put(tempPoint, tempCell);
+			}
+		}
+		
+		startingCell = pointToMazeCell.get(new Point(0,0));
+		endingCell = pointToMazeCell.get(new Point(mazeWidth-1, mazeHeight-1));
 	}
 
 	public MazeCell getStartingCell() {
@@ -42,13 +55,4 @@ public class Maze {
 		return pointToMazeCell.get(key);
 	}
 	
-
-	private void setupMazeCells(HashMap<Point, MazeCell> pointToMazeCell) {
-		Set<Point> keys = pointToMazeCell.keySet();
-		mazeCells = new HashSet<MazeCell>();
-		for(Point key : keys){
-			mazeCells.add(pointToMazeCell.get(key));
-		}
-	}
-
 }
