@@ -1,4 +1,4 @@
-package com.barai.milad.Graphics;
+package com.barai.milad.graphics;
 
 import javax.swing.JFrame;
 import java.awt.*;

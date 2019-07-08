@@ -1,7 +1,7 @@
-package com.barai.milad.Main;
+package com.barai.milad.main;
 
-import com.barai.milad.Graphics.CellVisualizer;
-import com.barai.milad.Graphics.WindowHandler;
+import com.barai.milad.graphics.CellVisualizer;
+import com.barai.milad.graphics.WindowHandler;
 
 public class Main {
 
