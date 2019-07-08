@@ -1,5 +1,6 @@
 package com.barai.milad.maze;
 
+import java.awt.Point;
 import java.util.ArrayList;
 
 /**
@@ -24,6 +25,10 @@ public class MazeCell {
 		this.mazeX = mazeX;
 		this.mazeY = mazeY;
 		connectedCells = new ArrayList<MazeCell>();
+	}
+	
+	public MazeCell(Point p){
+		this((int)p.getX(), (int)p.getY());
 	}
 
 	/**
