@@ -79,4 +79,12 @@ public class MazeCell {
 		connectedCells.add(connectTo);
 	}
 
+	public int getMazeX() {
+		return mazeX;
+	}
+
+	public int getMazeY() {
+		return mazeY;
+	}
+
 }
