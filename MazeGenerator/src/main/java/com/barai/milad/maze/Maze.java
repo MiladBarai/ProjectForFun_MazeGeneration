@@ -38,6 +38,9 @@ public class Maze {
 
 		startingCell = pointToMazeCell.get(new Point(0, 0));
 		endingCell = pointToMazeCell.get(new Point(mazeWidth - 1, mazeHeight - 1));
+		
+		startingCell.setFirst(true);
+		endingCell.setLast(true);
 	}
 
 	public MazeCell getStartingCell() {

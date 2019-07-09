@@ -14,6 +14,8 @@ public class MazeCell {
 	private int mazeX;
 	private int mazeY;
 	private ArrayList<MazeCell> connectedCells;
+	private boolean first;
+	private boolean last;
 
 	public MazeCell(int mazeX, int mazeY) {
 
@@ -95,8 +97,6 @@ public class MazeCell {
 	 */
 	public boolean[] getConnectionDirections() {
 		boolean[] result = new boolean[4];
-		String tempCells = "";
-		String tempLog = "";
 		int deltaX;
 		int deltaY;
 		for(MazeCell cell: connectedCells){
@@ -104,25 +104,17 @@ public class MazeCell {
 			deltaY = cell.mazeY-mazeY;
 			if(deltaY == -1){
 				result[0] = true;
-				tempLog += "0";
 			}
 			else if(deltaX == 1){
 				result[1] = true;
-				tempLog += "1";
 			}
 			else if(deltaY == 1){
 				result[2] = true;
-				tempLog += "2";
 			}
 			else if(deltaX == -1){
 				result[3] = true;
-				tempLog += "3";
 			}
-			tempCells += " [" + cell.mazeX + "," + cell.mazeY + "]";
 		}
-		
-		System.out.println("Conn From: [" + this.mazeX + "," + this.mazeY
-				+ "] ->"+ tempCells + "->" + tempLog);
 		
 		return result;
 	}
@@ -137,6 +129,22 @@ public class MazeCell {
 
 	public ArrayList<MazeCell> getConnectedCells() {
 		return connectedCells;
+	}
+
+	public boolean isFirst() {
+		return first;
+	}
+
+	public void setFirst(boolean first) {
+		this.first = first;
+	}
+
+	public boolean isLast() {
+		return last;
+	}
+
+	public void setLast(boolean last) {
+		this.last = last;
 	}
 	
 }
