@@ -125,8 +125,8 @@ public class MazeCellTest {
 	 */
 	@Test
 	public void getConnectionDirections1wayTest(){
-		//Top, expected to be true, rest false
-		boolean[] expected = {true, false, false, false};
+		//bottom, expected to be true, rest false
+		boolean[] expected = {false, false, true, false};
 		assertArrayEquals(expected, x1y0.getConnectionDirections());
 	}
 }

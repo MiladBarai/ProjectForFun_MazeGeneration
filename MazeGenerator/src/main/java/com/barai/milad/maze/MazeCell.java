@@ -48,7 +48,6 @@ public class MazeCell {
 	 * @param connectTo
 	 */
 	public void connectToCell(MazeCell connectTo) {
-
 		/*
 		 * Input validation
 		 */
@@ -87,6 +86,47 @@ public class MazeCell {
 		return connectedCells.size();
 	}
 
+	/**
+	 * 
+	 * Gets an array containing the connection direction booleans. telling if
+	 * there is a connection going up, right, down or left in that order
+	 * 
+	 * @return direction boolean array
+	 */
+	public boolean[] getConnectionDirections() {
+		boolean[] result = new boolean[4];
+		String tempCells = "";
+		String tempLog = "";
+		int deltaX;
+		int deltaY;
+		for(MazeCell cell: connectedCells){
+			deltaX = cell.mazeX-mazeX;
+			deltaY = cell.mazeY-mazeY;
+			if(deltaY == -1){
+				result[0] = true;
+				tempLog += "0";
+			}
+			else if(deltaX == 1){
+				result[1] = true;
+				tempLog += "1";
+			}
+			else if(deltaY == 1){
+				result[2] = true;
+				tempLog += "2";
+			}
+			else if(deltaX == -1){
+				result[3] = true;
+				tempLog += "3";
+			}
+			tempCells += " [" + cell.mazeX + "," + cell.mazeY + "]";
+		}
+		
+		System.out.println("Conn From: [" + this.mazeX + "," + this.mazeY
+				+ "] ->"+ tempCells + "->" + tempLog);
+		
+		return result;
+	}
+
 	public int getMazeX() {
 		return mazeX;
 	}
@@ -98,5 +138,5 @@ public class MazeCell {
 	public ArrayList<MazeCell> getConnectedCells() {
 		return connectedCells;
 	}
-
+	
 }
