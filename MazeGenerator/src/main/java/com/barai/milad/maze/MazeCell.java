@@ -16,19 +16,20 @@ public class MazeCell {
 	private ArrayList<MazeCell> connectedCells;
 
 	public MazeCell(int mazeX, int mazeY) {
-		
-		if(mazeX < 0 || mazeY <0){
-			throw new IllegalArgumentException("input to MazeCell constructor cannot be negative, input values:["+mazeX+","+mazeY+"]");
+
+		if (mazeX < 0 || mazeY < 0) {
+			throw new IllegalArgumentException(
+					"input to MazeCell constructor cannot be negative, input values:[" + mazeX + "," + mazeY + "]");
 		}
-		
+
 		// Setting the cell position in Maze
 		this.mazeX = mazeX;
 		this.mazeY = mazeY;
 		connectedCells = new ArrayList<MazeCell>();
 	}
-	
-	public MazeCell(Point p){
-		this((int)p.getX(), (int)p.getY());
+
+	public MazeCell(Point p) {
+		this((int) p.getX(), (int) p.getY());
 	}
 
 	/**
@@ -77,6 +78,13 @@ public class MazeCell {
 	 */
 	private void connectCell(MazeCell connectTo) {
 		connectedCells.add(connectTo);
+	}
+
+	/**
+	 * @return the amount of connected cells
+	 */
+	public int getConnectionsCount() {
+		return connectedCells.size();
 	}
 
 	public int getMazeX() {
