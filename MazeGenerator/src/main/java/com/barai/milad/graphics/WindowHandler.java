@@ -1,6 +1,7 @@
 package com.barai.milad.graphics;
 
 import javax.swing.JFrame;
+
 import java.awt.*;
 
 public class WindowHandler extends JFrame{
@@ -14,10 +15,12 @@ public class WindowHandler extends JFrame{
 		this.setSize(windowWidth, windowHeight);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
+
+		
 	}
 	
-	public void drawCell(CellVisualizer cell) {
-		this.add(cell, BorderLayout.CENTER);
+	public void drawMaze(MazeVisualizer maze) {
+		this.add(maze, BorderLayout.CENTER);
 		this.setVisible(true);
 	}
 
