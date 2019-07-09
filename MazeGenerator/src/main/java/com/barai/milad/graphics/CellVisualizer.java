@@ -65,11 +65,11 @@ public class CellVisualizer extends JComponent {
 		graphics2D.setStroke(new BasicStroke(4));
 
 		if(first){
-			graphics2D.setColor(new Color(66,245,147,95));
+			graphics2D.setColor(new Color(66,245,147));
 			graphics2D.fillRect(bottomLeft.x,bottomLeft.y, width, height);
 		}
 		else if(last){
-			graphics2D.setColor(new Color(245,90,66,95));
+			graphics2D.setColor(new Color(245,90,66));
 			graphics2D.fillRect(bottomLeft.x,bottomLeft.y, width, height);
 		}
 		graphics2D.setColor(Color.BLACK);
