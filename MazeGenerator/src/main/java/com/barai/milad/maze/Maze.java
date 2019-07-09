@@ -66,7 +66,7 @@ public class Maze {
 	 * 
 	 * @param midPoint
 	 * @return a List with MazeCells that can setup a connection to
-	 *         {@code midpoint}
+	 *         {@code midpoint} starting from the top, ordered clockwise
 	 */
 	public List<MazeCell> getConnectableCells(MazeCell midPoint) {
 		ArrayList<MazeCell> connectableCells = new ArrayList<MazeCell>();
