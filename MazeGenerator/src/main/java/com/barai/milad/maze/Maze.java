@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.awt.Point;
 
 /**
@@ -47,7 +48,7 @@ public class Maze {
 		return endingCell;
 	}
 
-	public HashSet<MazeCell> getMazeCells() {
+	public Set<MazeCell> getMazeCells() {
 		return mazeCells;
 	}
 
