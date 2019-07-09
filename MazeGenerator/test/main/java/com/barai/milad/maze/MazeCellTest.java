@@ -107,4 +107,26 @@ public class MazeCellTest {
 	public void constructMazeCellNegativeY() {
 		new MazeCell(0, -1);
 	}
+	
+	/**
+	 * Test that the connection directions are correctly returned
+	 * in a 4 way connection
+	 */
+	@Test
+	public void getConnectionDirections4wayTest(){
+		//Top, right, bottom, left all expected to be true
+		boolean[] expected = {true, true, true, true};
+		assertArrayEquals(expected, midCell.getConnectionDirections());
+	}
+	
+	/**
+	 * Test that the connection directions are correctly returned
+	 * in a 1 way connection
+	 */
+	@Test
+	public void getConnectionDirections1wayTest(){
+		//Top, expected to be true, rest false
+		boolean[] expected = {true, false, false, false};
+		assertArrayEquals(expected, x1y0.getConnectionDirections());
+	}
 }

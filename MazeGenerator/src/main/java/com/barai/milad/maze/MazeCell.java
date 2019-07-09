@@ -95,4 +95,8 @@ public class MazeCell {
 		return mazeY;
 	}
 
+	public ArrayList<MazeCell> getConnectedCells() {
+		return connectedCells;
+	}
+
 }
