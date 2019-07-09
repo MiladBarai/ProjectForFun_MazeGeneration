@@ -26,23 +26,28 @@ public class CellVisualizer extends JComponent {
 	private static final long serialVersionUID = 4727575049581533821L;
 
 	/**
-	 * Default constructor used for prof of concept
+	 * Constructor for creating a cell visualizer.
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @param top
+	 * @param right
+	 * @param bottom
+	 * @param left
 	 */
-	public CellVisualizer() {
-		int x = 0;
-		int y = 0;
-		int width = 200;
-		int height = 200;
-		left = true;
-		bottom = true;
-		right = true;
-		top = true;
-
+	public CellVisualizer(int x, int y, int width, int height,boolean top, boolean right,boolean bottom, boolean left){
+		this.top = top;
+		this.bottom = bottom;
+		this.left = left;
+		this.right = right;
+		
 		bottomLeft = new Point(x, y);
 		bottomRight = new Point(x + width, y);
 
 		topLeft = new Point(x, y + height);
 		topRight = new Point(x + width, y + height);
+		
 	}
 
 	public void paint(Graphics g) {

@@ -7,8 +7,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		WindowHandler wh = new WindowHandler(500, 500);
-		CellVisualizer test = new CellVisualizer();
-		wh.drawCell(test);
+//		CellVisualizer test = new CellVisualizer();
+//		wh.drawCell(test);
 
 	}
 
