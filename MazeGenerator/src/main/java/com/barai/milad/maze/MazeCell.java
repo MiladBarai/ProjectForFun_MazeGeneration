@@ -58,7 +58,7 @@ public class MazeCell {
 			throw new IllegalArgumentException("ConnectTo cannot be null or same MazeCell");
 		}
 
-		if (deltaX > 1 || deltaY > 1) {
+		if (deltaX > 1 || deltaY > 1 || (deltaX == 1 && deltaY == 1)) {
 			throw new IllegalArgumentException("MazeCell connection out of range: [" + this.mazeX + "," + this.mazeY
 					+ "] -> [" + connectTo.mazeX + "," + connectTo.mazeY + "]");
 		}
