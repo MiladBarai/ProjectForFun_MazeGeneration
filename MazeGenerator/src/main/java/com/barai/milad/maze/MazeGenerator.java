@@ -1,6 +1,7 @@
 package com.barai.milad.maze;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
@@ -53,6 +54,7 @@ public class MazeGenerator {
 		int nextCellIndex;
 
 		List<MazeCell> connOptions;
+		boolean solved = false;
 
 		while (expectedVisits > visited.size()) {
 			connOptions = maze.getConnectableCells(cellPointer);
@@ -66,8 +68,25 @@ public class MazeGenerator {
 				backTracking.push(cellPointer);
 				cellPointer.connectToCell(nextCell);
 				cellPointer = nextCell;
+				if(cellPointer == maze.getEndingCell() && !solved) { 
+					maze.setSolution(backTrackingStackToList(backTracking));
+				}
 			}
 		}
+	}
+	
+	private static List<MazeCell> backTrackingStackToList(Stack<MazeCell> stack){
+		ArrayList<MazeCell> result = new ArrayList<MazeCell>();
+		Stack<MazeCell> copy = (Stack<MazeCell>)stack.clone();
+		
+		while(!copy.isEmpty()) {
+			result.add(copy.pop());
+		}
+		
+		Collections.reverse(result);
+		
+		return result;
+		
 	}
 
 	/**

@@ -1,6 +1,7 @@
 package com.barai.milad.converter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import javax.swing.JComponent;
 
@@ -28,9 +29,37 @@ public class ModelToViewConverter {
 	 * @return MazeVisaulizer representation of the input maze
 	 */
 	public static MazeVisualizer mazeToVisualizer(Maze maze, int cellSize, int padding) {
+		 return mazeToVisualizer(maze, cellSize, padding, false);
+	}
+	
+	/**
+	 * Converts the {@code maze} into a MazeVisualizer with {@code cellSize} and
+	 * a {@code padding} from the frame
+	 * 
+	 * @param maze
+	 * @param cellSize
+	 * @param padding
+	 * @param includeSolution
+	 * @return MazeVisaulizer representation of the input maze
+	 */
+	public static MazeVisualizer mazeToVisualizer(Maze maze, int cellSize, int padding, boolean includeSolution) {
+		HashSet<MazeCell> processedCell = null;
 		ArrayList<JComponent> components = new ArrayList<JComponent>();
+		
+		if(includeSolution) {
+			processedCell = new HashSet<MazeCell>();
+			CellVisualizer temp;
+			for(MazeCell cell: maze.getSolution()) {
+				processedCell.add(cell);
+				temp = cellToVisualizer(cell, cellSize, padding);
+				temp.setCircleColor(0,223,252);
+				components.add(temp);
+			}
+		}
+		
 		for (MazeCell cell : maze.getMazeCells()) {
-			components.add(cellToVisualizer(cell, cellSize, padding));
+			if(processedCell == null || !processedCell.contains(cell))
+				components.add(cellToVisualizer(cell, cellSize, padding));
 		}
 
 		MazeVisualizer result = new MazeVisualizer(components);

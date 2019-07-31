@@ -19,6 +19,7 @@ public class Maze {
 	private MazeCell endingCell;
 	private HashSet<MazeCell> mazeCells;
 	private HashMap<Point, MazeCell> pointToMazeCell;
+	private List<MazeCell> solution;
 
 	public Maze(int mazeWidth, int mazeHeight) {
 		mazeCells = new HashSet<MazeCell>();
@@ -62,6 +63,14 @@ public class Maze {
 	 */
 	public int getMazeCellCount() {
 		return mazeCells.size();
+	}
+	
+	public void setSolution(List<MazeCell> solution) {
+		this.solution = solution;
+	}
+	
+	public List<MazeCell> getSolution() {
+		return solution;
 	}
 
 	/**
