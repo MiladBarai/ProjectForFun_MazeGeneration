@@ -11,6 +11,8 @@ import java.awt.RenderingHints;
 import javax.swing.JComponent;
 
 public class CellVisualizer extends JComponent {
+	private static final double CIRCLE_REDUCTION_RATION = 0.6; 
+	
 	private Point bottomLeft;
 	private Point bottomRight;
 	private Point topRight;
@@ -23,8 +25,7 @@ public class CellVisualizer extends JComponent {
 	boolean bottom;
 	boolean top;
 	
-	boolean first;
-	boolean last;
+	Color circleColor;
 
 	/**
 	 * 
@@ -58,21 +59,27 @@ public class CellVisualizer extends JComponent {
 		topRight = new Point(x + width, y + height);
 		
 	}
+	
+	public void setCircleColor(int r, int g, int b) {
+		circleColor = new Color(r,g,b);
+	}
 
 	public void paint(Graphics g) {
 		Graphics2D graphics2D = (Graphics2D) g;
 		graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		graphics2D.setStroke(new BasicStroke(4));
 
-		if(first){
-			graphics2D.setColor(new Color(66,245,147));
-			graphics2D.fillRect(bottomLeft.x,bottomLeft.y, width, height);
+		if(circleColor != null){
+			graphics2D.setColor(circleColor);
+			int circleWidth = (int)Math.ceil(width * CIRCLE_REDUCTION_RATION);
+			int circleHeight = (int)Math.ceil(height * CIRCLE_REDUCTION_RATION);
+			int circleX = (int)Math.ceil(bottomLeft.x + width*(1-CIRCLE_REDUCTION_RATION)/2);
+			int circleY = (int)Math.ceil(bottomLeft.y + height*(1-CIRCLE_REDUCTION_RATION)/2);
+			graphics2D.fillOval(circleX,circleY, circleWidth, circleHeight);
 		}
-		else if(last){
-			graphics2D.setColor(new Color(245,90,66));
-			graphics2D.fillRect(bottomLeft.x,bottomLeft.y, width, height);
-		}
+
 		graphics2D.setColor(Color.BLACK);
+		
 		if (left) {
 			drawFromPointToPoint(g, bottomLeft, topLeft);
 		}
@@ -90,22 +97,6 @@ public class CellVisualizer extends JComponent {
 
 	private void drawFromPointToPoint(Graphics g, Point p1, Point p2) {
 		g.drawLine(p1.x, p1.y, p2.x, p2.y);
-	}
-
-	public boolean isFirst() {
-		return first;
-	}
-
-	public void setFirst(boolean first) {
-		this.first = first;
-	}
-
-	public boolean isLast() {
-		return last;
-	}
-
-	public void setLast(boolean last) {
-		this.last = last;
 	}
 
 }

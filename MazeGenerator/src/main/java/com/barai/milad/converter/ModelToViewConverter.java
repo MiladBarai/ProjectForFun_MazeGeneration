@@ -56,8 +56,11 @@ public class ModelToViewConverter {
 				cell.getMazeY() * cellSize + padding, cellSize, cellSize, !connDir[0], !connDir[1], !connDir[2],
 				!connDir[3]);
 		
-		result.setFirst(cell.isFirst());
-		result.setLast(cell.isLast());
+		if(cell.isFirst())
+			result.setCircleColor(66,245,147);
+		if(cell.isLast())
+			result.setCircleColor(245,90,66);
+			
 			
 
 		return result;
